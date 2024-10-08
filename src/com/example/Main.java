@@ -22,15 +22,24 @@ public class Main {
 
             switch (option) {
                 case 1:
-                    // Agregar una nueva tarea
-                    break;
-                case 2:
-                    // Marcar una tarea como completada
-                    break;
+                System.out.println("Enter task number to mark as completed:");
+                int taskNumber = scanner.nextInt();
+                if (taskNumber > 0 && taskNumber <= tasks.size()) {
+                    tasks.get(taskNumber - 1).setCompleted(true);
+                    System.out.println("Task marked as completed!");
+                } else {
+                    System.out.println("Invalid task number.");
+                }
+                break;
+            
+            case 2:
+                System.out.println("Task List:");
+                for (int i = 0; i < tasks.size(); i++) {
+                    System.out.println((i + 1) + ". " + tasks.get(i));
+                }
+                break;
+            
                 case 3:
-                    // Mostrar la lista de tareas
-                    break;
-                case 4:
                     System.exit(0);
             }
         }
